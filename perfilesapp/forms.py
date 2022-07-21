@@ -57,7 +57,7 @@ class CursoFormulario(forms.Form):
     dias = forms.CharField( label= "Dias")
     turno = forms.CharField(label= "Turno", widget=forms.Select(choices=TURNOS))
     precio = forms.IntegerField(label= "Precio")
-    imagen = forms.ImageField(label= "Imagen")
+    imagen = forms.ImageField(label= "Imagen", required=False) ##################
     
     class Meta():
         model = TiendaActividad

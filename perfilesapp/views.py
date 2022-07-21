@@ -309,24 +309,17 @@ def editar_curso(request, curso_id):
         formulario = CursoFormulario(request.POST, request.FILES or None, curso_id)
         if formulario.is_valid():
 
-                info_curso = formulario.cleaned_data
-                cursos.actividad = info_curso["actividad"]
-                cursos.profesor = info_curso["profesor"]
-                cursos.dias = info_curso["dias"]
-                cursos.turno = info_curso["turno"]
-                cursos.precio = info_curso["precio"]
-                if request.FILES:
+            info_curso = formulario.cleaned_data
+            cursos.actividad = info_curso["actividad"]
+            cursos.profesor = info_curso["profesor"]
+            cursos.dias = info_curso["dias"]
+            cursos.turno = info_curso["turno"]
+            cursos.precio = info_curso["precio"]
                 
-                    cursos.imagen = info_curso["imagen"]
-                    cursos.save()
-                    return redirect("municipal")
-                else:    
-                    cursos.imagen = None
-                    cursos.save()
-                    return redirect("municipal")
-        else:
-            return redirect("municipal")
-        #return redirect ("cursos")
+            if request.FILES:
+                cursos.imagen = request.FILES["imagen"]
+                cursos.save()
+            return redirect ("cursos")
 
     
     #get
