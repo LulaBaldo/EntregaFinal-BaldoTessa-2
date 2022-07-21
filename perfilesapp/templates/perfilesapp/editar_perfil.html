@@ -1,0 +1,48 @@
+{% extends 'perfilesapp/base.html' %}
+{% load static %} 
+
+{% block tituloPagina %} 
+Editar Perfil
+{% endblock %} 
+
+
+{% block contenidoPagina %} 
+
+{% endblock %} 
+
+{% block about %} 
+<div>
+    <p class="justify-content-center">
+        <br>
+        <br>
+        <h1 style="color:white" > 
+            Edita tu perfil
+        </h1>
+        <br>
+        <br>
+    </p>
+</div>
+{% endblock %} 
+
+{% block servicios %} 
+<div>
+    <section class="bg-light py-5">
+        <div class="container px-5">
+            <br>
+            <br>
+            <h5 class="text-center">Estas editando al usuario "{{user.username}}":</h5>
+            <br>
+            <br>
+            <form action="" method="post" class="text-center">
+                {% csrf_token %}
+                {{form.as_p}}
+                <br>
+                <button class="secondary" type="submit">Guardar</button>
+
+            </form>
+            <br>
+        </div>
+    </section>
+</div>
+
+{% endblock %} 
